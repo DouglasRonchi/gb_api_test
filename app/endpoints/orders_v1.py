@@ -1,11 +1,11 @@
 """
-This is a orders' endpoint module
+This is an orders' endpoint module
 """
 
 import http
 import json
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from loguru import logger
 from starlette.responses import JSONResponse
 
@@ -14,7 +14,6 @@ from app.schemas.order import OrderSchema
 from app.schemas.swagger.orders import (create_new_order_responses,
                                         get_seller_cashback)
 from app.services.order import OrderService
-from app.utils.authentication import decode_token
 
 orders_endpoint_v1_router = APIRouter()
 

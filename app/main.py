@@ -25,14 +25,10 @@ async def create_db_client():
         logger.error(f"{err}")
 
 
-# Register the middlewares
 RegisterMiddlewares(app)
 
-# Add all the routes
 app.include_router(health_check_router, tags=["HealthCheck"])
-
 app.include_router(orders_endpoint_v1_router, prefix="/gb/v1", tags=["Orders"])
-
 app.include_router(sellers_endpoint_v1_router, prefix="/gb/v1", tags=["Sellers"])
 
 app.openapi = custom_openapi

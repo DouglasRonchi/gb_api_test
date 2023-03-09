@@ -2,7 +2,6 @@ FROM python:3.10
 
 WORKDIR /app
 
-ARG PIP_EXTRA_URL
 COPY requirements/app.txt requirements.txt
 
 RUN pip install -r requirements.txt
