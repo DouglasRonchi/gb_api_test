@@ -1,0 +1,6 @@
+-r test.txt
+bandit==1.7.4
+isort==5.10.1
+pyclean==2.2.0
+pre-commit==2.19.0
+httpx==0.23.3

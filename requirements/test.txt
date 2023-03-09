@@ -1,0 +1,6 @@
+-r app.txt
+pytest==7.1.1
+pytest-cov==3.0.0
+pytest-mock==3.7.0
+mongomock==4.0.0
+httpie==3.1.0
