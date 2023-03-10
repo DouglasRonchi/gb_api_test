@@ -24,30 +24,10 @@ Credits: Douglas Buss Ronchi<br>
 ### 2. Software dependencies
    - MongoDB
 
-### 3. Project requirements
-### Dev
-- pytest==7.1.1
-- pytest-cov==3.0.0
-- pytest-mock==3.7.0
-- pyclean==2.2.0
-- mongomock==4.0.0
-### App
-- httpie==3.1.0
-- pydantic==1.9.0
-- mongoengine==0.24.1
-- loguru==0.6.0
-- fastapi==0.75.1
-- starlette==0.17.1
-- requests==2.27.1
-- PyJWT==2.3.0
-- uvicorn==0.17.6
-- pymongo==4.1.1
-- pydantic==1.10.6    
-
-### 4. Latest releases
+### 3. Latest releases
 - v1.0.0 - First Release
 
-### 5. API references
+### 4. API references
 - FastAPI
 
 # Build and Test

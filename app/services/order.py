@@ -6,7 +6,7 @@ from typing import List, Dict
 import requests
 from loguru import logger
 
-from app.exceptions.exceptions import SellerDoNotExistsException
+from app.exceptions.exceptions import SellerDoNotExistsException, InvalidCPFException
 from app.repository.order import OrderRepository
 from app.repository.seller import SellerRepository
 from app.schemas.order import OrderSchema
@@ -45,6 +45,11 @@ class OrderService:
     @staticmethod
     def convert_percentage(cashback_percentage):
         return f"{int(cashback_percentage * 100)}%"
+
+    @staticmethod
+    def validate_cpf(cpf):
+        if len(cpf) != 11:
+            raise InvalidCPFException
 
     @staticmethod
     def get_cashback_infos(order_value):

@@ -21,3 +21,7 @@ class ForbiddenException(Exception):
 
 class SellerDoNotExistsException(Exception):
     """Raise when do not find a specific seller on database"""
+
+
+class InvalidCPFException(Exception):
+    """Raise when CPF do not match with 11 characters"""

@@ -11,7 +11,7 @@ from app.endpoints.healthcheck import health_check_router
 from app.endpoints.sellers_v1 import sellers_endpoint_v1_router
 from app.middlewares.register_middlewares import RegisterMiddlewares
 
-logger.info(f"Starting API")
+logger.info("Starting API")
 app = FastAPI(
     title="API Rest GB"
 )

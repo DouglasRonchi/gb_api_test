@@ -44,7 +44,7 @@ class OrderSchema(BaseModel):
     )
 
     @validator("cpf")
-    def cpf_must_contain_eleven_max_characters(cls, cpf):
+    def cpf_must_contain_eleven_characters(cls, cpf):
         if len(cpf) != 11:
             raise ValueError("Cpf must contain exactly eleven characters")
         return cpf

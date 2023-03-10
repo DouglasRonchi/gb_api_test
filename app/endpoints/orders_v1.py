@@ -9,7 +9,8 @@ from fastapi import APIRouter
 from loguru import logger
 from starlette.responses import JSONResponse
 
-from app.exceptions.exceptions import ForbiddenException, UnauthorizedException, SellerDoNotExistsException
+from app.exceptions.exceptions import ForbiddenException, UnauthorizedException, SellerDoNotExistsException, \
+    InvalidCPFException
 from app.schemas.order import OrderSchema
 from app.schemas.swagger.orders import (create_new_order_responses,
                                         get_seller_cashback)
@@ -84,6 +85,7 @@ def get_cashback(cpf):
     information from an external API provided by the Boticário.
     """
     try:
+        OrderService.validate_cpf(cpf)
         data = OrderService.get_accumulated_cashback(cpf)
         return JSONResponse(
             status_code=http.HTTPStatus.OK, content=data
@@ -96,6 +98,10 @@ def get_cashback(cpf):
     except ForbiddenException:
         return JSONResponse(
             status_code=http.HTTPStatus.FORBIDDEN, content={"message": "Access denied"}
+        )
+    except InvalidCPFException:
+        return JSONResponse(
+            status_code=http.HTTPStatus.BAD_REQUEST, content={"message": "Cpf must contain exactly eleven characters"}
         )
     except Exception as err:
         logger.error(f"Error {err}")
